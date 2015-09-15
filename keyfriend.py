@@ -50,16 +50,21 @@ def print_search_results(results):
 
 
 @click.command()
-# @click.option('--artist', default=None, help='Artist name')
-@click.option('--query', prompt='Type search query for artist and title',
-              help='Search by artist and title')
-def song_info(query):
-    result = song.search(combined=query)
+@click.option('--artist', prompt='Enter artist or full search string',
+              help='''Accepts artist search parameter, or full search string for
+              artist and title if the title parameter is not given.''')
+@click.option('--title', default='', prompt='Enter title (optional)',
+              help='''Accepts song title. If empty, query given to artist
+              prompt is used as a combined search string for both artist and
+              title.''')
+def song_info(artist, title):
+    if title is u'':
+        print("Searching for '%s'" % artist)
+        result = song.search(combined=artist)
+    else:
+        print("Searching for '%s - %s'" % (artist, title))
+        result = song.search(artist=artist, title=title)
     print_search_results(take(3, result))
-    # it = s[1]
-    # it.get_audio_summary()
-
-
 
 
 if __name__ == '__main__':

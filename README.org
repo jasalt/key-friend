@@ -1,6 +1,6 @@
 Misc utilities for automating work with digital audio records
 * Development tips
-Pyechonest is sadly not yet compatible with Python 3.
+PyEchoNest is sadly not yet compatible with Python 3.
 
 1) Install Python 2.7.10 with [[https://github.com/yyuu/pyenv][pyenv]].
 2) Create virtual environment with proper interpreter version with [[https://virtualenvwrapper.readthedocs.org/en/latest/][virtualenvwrapper]].
@@ -15,10 +15,13 @@ $ pip install -r requirements.txt
 $ vi keyfriend.py
 #+END_SRC
 
-* Command documentation
+* Commands
 [[http://click.pocoo.org/][Click]] library is used for the command line interface.
 
 Implemented commands:
-- =./keyfriend.py --query boozoo bazou= search and print echonest song data for given string.
-- =./keyfriend.py= shows prompt for search query
+=./keyfriend.py= interactive prompt for artist and optional title 
+=./keyfriend.py --help= show full command documentation
+
+- Search for song bpm, key and mode via EchoNest
+
 
