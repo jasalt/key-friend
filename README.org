@@ -1,4 +1,17 @@
-Misc utilities for automating work with digital audio records
+Simple DJ key finding tool useable with any music software.
+
+Features:
+- Key & BPM finding via EchoNest API (TODO fallback/option for local analysis)
+- TODO Drag & drop user interface
+- TODO Circle of fifts helpers (for sorting playlists harmonically)
+
+Alternative software:
+- [[http://www.ibrahimshaath.co.uk/keyfinder/][KeyFinder]] (OSX, Open Source)
+- [[https://github.com/tfriedel/trackanalyzer][Trackanalyzer]] (Multiplatform, Open Source)
+- [[http://www.mixshare.com/software.html][RapidEvolution]] (Multiplatform, [[http://www.mixshare.com/software.html][Open Source]])
+- [[http://www.mixxx.org/][Mixxx]] (Multiplatform, Open Source) 
+- Mixed in Key (OSX/Win, Proprietary)
+
 * Development tips
 PyEchoNest is sadly not yet compatible with Python 3.
 
@@ -24,4 +37,14 @@ Implemented commands:
 
 - Search for song bpm, key and mode via EchoNest
 
+Example output:
 
+#+BEGIN_SRC: 
+$ ./keyfriend.py --artist bluescreens --title "strike one"
+Searching for 'bluescreens - strike one'
+-----------  -------------------  -------  ---  -----
+Artist       Title                BPM      Key  Mode
+Bluescreens  Strike One (Part I)  174.03   f    major
+Bluescreens  Strike One Part II   173.995  f    minor
+-----------  -------------------  -------  ---  -----
+#+END_SRC
