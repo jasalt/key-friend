@@ -1,0 +1,11 @@
+Misc utilities for automating work with digital recordings
+
+Development tips
+
+With Python 3, virtualenv and virtualenvwrapper set up:
+
+#+BEGIN_SRC shell
+mkvirtualenv -p python3 mix-utils
+pip install -r requirements
+vi keyfriend.py
+#+END_SRC
