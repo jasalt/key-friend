@@ -29,13 +29,19 @@ from pyechonest import config
 from secrets import ECHONEST_KEY
 from pyechonest import song
 from toolz import take
+from tabulate import tabulate
 
 config.ECHO_NEST_API_KEY = ECHONEST_KEY
 
 
-def print_song_entry(s):
-    # import ipdb; ipdb.set_trace()
-    print(s)
+def print_search_results(results):
+    rows = [['Artist', 'Title', 'BPM', 'Key', 'Mode']]  # 'Genre',
+    for s in results:
+        ssummary = s.get_audio_summary()
+        rows.append([s.artist_name, s.title,  # , ','.join(s.song_type)
+                     ssummary['tempo'], ssummary['key'], ssummary['mode']])
+
+    print(tabulate(rows))
 
 
 @click.command()
@@ -44,8 +50,7 @@ def print_song_entry(s):
               help='Search by artist and title')
 def song_info(query):
     result = song.search(combined=query)
-    print("Got %s results." % len(result))
-    map(lambda entry: print_song_entry(entry), take(5, result))
+    print_search_results(take(3, result))
     # it = s[1]
     # it.get_audio_summary()
     # mode (int): 0 or 1 (minor or major)
@@ -55,4 +60,3 @@ def song_info(query):
 
 if __name__ == '__main__':
     song_info()
-    
