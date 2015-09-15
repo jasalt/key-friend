@@ -1,11 +1,24 @@
-Misc utilities for automating work with digital recordings
+Misc utilities for automating work with digital audio records
+* Development tips
+Pyechonest is sadly not yet compatible with Python 3.
 
-**** Development tips
-
-With Python 3, virtualenv and virtualenvwrapper set up:
+1) Install Python 2.7.10 with [[https://github.com/yyuu/pyenv][pyenv]].
+2) Create virtual environment with proper interpreter version with [[https://virtualenvwrapper.readthedocs.org/en/latest/][virtualenvwrapper]].
+3) Install requirements with pip
+4) Setup [[https://developer.echonest.com/account/profile][EchoNest API key]] in secrets.py
+5) Write more code
 
 #+BEGIN_SRC shell
-mkvirtualenv -p python3 mix-utils
-pip install -r requirements
-vi keyfriend.py
+$ pyenv install -v 2.7.10
+$ mkvirtualenv mix-utils -p ~/.pyenv/versions/2.7.10/bin/python
+$ pip install -r requirements.txt
+$ vi keyfriend.py
 #+END_SRC
+
+* Command documentation
+[[http://click.pocoo.org/][Click]] library is used for the command line interface.
+
+Implemented commands:
+- =./keyfriend.py --query boozoo bazou= search and print echonest song data for given string.
+- =./keyfriend.py= shows prompt for search query
+
