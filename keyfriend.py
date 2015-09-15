@@ -10,6 +10,8 @@
 # - Fetch data from echonest
 #    https://github.com/echonest/pyechonest
 #    http://developer.echonest.com/raw_tutorials/faqs/faq_04.html
+# - Map key/mode to Open Key Notation wheel
+#    https://www.beatunes.com/en/open-key-notation.html
 # - Local keyfinder software libary integration
 #    http://www.ibrahimshaath.co.uk/keyfinder/
 #    C++ lib https://github.com/ibsh/libKeyFinder
