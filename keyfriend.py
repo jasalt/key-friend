@@ -33,14 +33,19 @@ from tabulate import tabulate
 
 config.ECHO_NEST_API_KEY = ECHONEST_KEY
 
+api_values = {
+    'mode': {0: 'minor', 1: 'major'},
+    'key': {0: 'c', 1: 'c-sharp', 2: 'd', 3: 'e-flat', 4: 'e', 5: 'f',
+            6: 'f-sharp', 7: 'g', 8: 'a-flat', 9: 'a', 10: 'b-flat', 11: 'b'}}
+
 
 def print_search_results(results):
     rows = [['Artist', 'Title', 'BPM', 'Key', 'Mode']]  # 'Genre',
     for s in results:
         ssummary = s.get_audio_summary()
-        rows.append([s.artist_name, s.title,  # , ','.join(s.song_type)
-                     ssummary['tempo'], ssummary['key'], ssummary['mode']])
-
+        rows.append([s.artist_name, s.title, ssummary['tempo'],
+                     api_values['key'][ssummary['key']],
+                     api_values['mode'][ssummary['mode']]])
     print(tabulate(rows))
 
 
@@ -53,9 +58,8 @@ def song_info(query):
     print_search_results(take(3, result))
     # it = s[1]
     # it.get_audio_summary()
-    # mode (int): 0 or 1 (minor or major)
-    # key (int): 0-11 (c, c-sharp, d, e-flat, e, f, f-sharp, g, a-flat, a,
-    # b-flat, b)
+
+
 
 
 if __name__ == '__main__':
