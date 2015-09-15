@@ -1,6 +1,6 @@
 Misc utilities for automating work with digital recordings
 
-Development tips
+**** Development tips
 
 With Python 3, virtualenv and virtualenvwrapper set up:
 
