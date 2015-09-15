@@ -1,0 +1,12 @@
+appnope==0.1.0
+decorator==4.0.2
+gnureadline==6.3.3
+ipython==4.0.0
+ipython-genutils==0.1.0
+path.py==8.1.1
+pexpect==3.3
+pickleshare==0.5
+pyechonest==9.0.0
+simplegeneric==0.8.1
+traitlets==4.0.0
+wheel==0.24.0
